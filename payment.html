@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Smart Bins</title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="details">
+            <div class="imgTkn">
+                <img src="images/tokens.png" width="50px">
+            </div>
+            <p>Please Enter your Email address to receive your tokens</p>
+        </div>
+        <div class="input-form">
+            <input type="email" class="email" id='mail' placeholder="username@example.com">
+            <button class="send" onclick="openPopup()">SEND</button>
+        </div>
+        <div class="popup" id="popup">
+            <img src="images/tick.png">
+            <h2>Thank You</h2>
+            <p>Your tokens have been successfully sent to your account</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+</body>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    var popup = document.getElementById('popup');
+    function openPopup(){
+        popup.classList.add("open-popup")
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup");
+        window.open("index.html")
+    }
+    // function sendEmail() {
+    //     Email.send({
+    //     Host: "smtp.gmail.com",
+    //     Username: "nharvey130@gmail.com",
+    //     Password: "xuicgrsfftgkzgrw",
+    //     To: 'trevor.atela@strathmore.edu',
+    //     From: document.getElementById('mail').value,
+    //     Subject: "SMART BINS TOKEN",
+    //     Body: "Thanks for Recycling. Here is your Reward"
+    //   })
+    //     .then(function (message) {
+    //       alert("mail sent successfully")
+    //     });
+    // }
+</script>
+</html>

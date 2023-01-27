@@ -1,0 +1,114 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/background.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    background-color: #ffcbcb;
+    width: 400px;
+    padding: 20px;
+    height: 300px;
+    transition: .1s;
+    border-radius: 7px;
+}
+.header h1{
+    align-self: center;
+    font-size: 23px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.header p{
+    font-size: 16px;
+    margin-bottom: 10px;
+
+}
+.plasticsNo{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.plastics{
+    font-size: 20px;
+}
+.glass{
+    font-size: 20px;
+}
+.cans{
+    font-size: 20px;
+}
+.BottlesandPrice{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.details{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.section-1{
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    font-size: 20px;
+}
+.section-2{
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    font-size: 20px;
+}
+.section-3{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+.tokenImg{
+    margin-right: 10px;
+}
+.price-section{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+button{
+    border: none;
+    background-color: chartreuse;
+    width: 400;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+.qr-code{
+    padding: 25px 0;
+    border: 1px solid;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none
+    transition .5s;
+}
+.container.active{
+    height: 500px;
+}
+.container.container.active .qr-code{
+    opacity: 1;
+    pointer-events: auto;
+}

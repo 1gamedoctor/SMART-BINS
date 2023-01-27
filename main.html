@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Smart Bins</title>
+</head>
+<body>
+    <div class="container">
+        <div class="details">
+            <h1>Smart Bins</h1>
+            <p>Recycle Your Wastes</p>
+        </div>
+        <div class="BottlesandPrice">
+            <div class="section-1">
+                <p class="plastics">Bottles:</p>
+                <p class="PlasticNo" id="number">0</p>
+            </div>
+            <div class="section-2">
+                <p class="cans">Cans:</p>
+                <p class="cansNo" id="canNo">0</p>
+            </div>
+            <div class="section-3">
+                <p class="glass">Glass:</p>
+                <p class="glassNo" id="glassNo">0</p>
+            </div>
+        </div>
+        <div class="price-section">
+            <img src="images/tokens.png" class="tokenImg" width="30px">
+            <p>Tokens:</p>
+            <p class="price" id="priceNo">0</p>
+        </div>
+        <button id="button" onclick="generateCode()">COMPLETE</button>
+        <div class="header" id = "hh">
+            <h1>Scan QR Code</h1>
+        </div>
+        <div class="qr-code">
+            <img src="images/qrcode.png" width="150px" class="qr-image">
+        </div>
+    </div>
+    <script type="module">        
+        //firebase configuration
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmTlU5Px7ik5Hs6anQgGSwluV1YqPovF0",
+            authDomain: "smart-bins-6abe3.firebaseapp.com",
+            databaseURL: "https://smart-bins-6abe3-default-rtdb.firebaseio.com",
+            projectId: "smart-bins-6abe3",
+            storageBucket: "smart-bins-6abe3.appspot.com",
+            messagingSenderId: "872825331079",
+            appId: "1:872825331079:web:588f88a00326939ee60722",
+            measurementId: "G-3FG0K31G99"
+        };
+        // initialize firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        const starCountRef = ref(db, 'plastics');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            var digit = document.getElementById('number').innerHTML=data;
+            
+        });
+        const cansRef = ref(db, 'cans');
+        onValue(cansRef, (snapshot) => {
+            const data1 = snapshot.val();
+            var digit1 = document.getElementById('canNo').innerHTML=data1;
+            
+        });
+        const glassRef = ref(db, 'glass');
+        onValue(glassRef, (snapshot) => {
+            const data2 = snapshot.val();
+            var digit2 = document.getElementById('glassNo').innerHTML=data2;
+            
+        });
+        const priceRef = ref(db, 'price');
+        onValue(priceRef, (snapshot) => {
+            const data3 = snapshot.val();
+            var digit3 = document.getElementById('priceNo').innerHTML=data3;
+            
+        });
+    </script>
+        <script>
+            document.getElementById("hh").style.visibility ="hidden";
+            var container = document.querySelector(".container");
+            var generateBtn = document.getElementById("button");
+            var qrImg = document.querySelector(".qr-image");
+    
+            function generateCode(){
+                    container.classList.add("active");
+                    document.getElementById("hh").style.visibility="visible";
+                    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+"https://smart-bins-6abe3--testsite-bt78hr2f.web.app/main.html";
+                    qrImg.onload = function(){
+                        container.classList.add("active");
+                    }
+                }
+        </script>
+</body>
+</html> 
